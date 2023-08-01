@@ -51,17 +51,23 @@ auth.onAuthStateChanged(user => {
     if (user) {
 
         // Database Reference
-        thingsRef = db.collection('things')
+        thingsRef = db.collection('books')
 
         createThing.onclick = () => {
 
             const { serverTimestamp } = firebase.firestore.FieldValue;
 
             thingsRef.add({
+Author: user.displayName,
+title: "new book"
+
+});
+
+/*{
                 uid: user.uid,
                 name: faker.commerce.productName(),
                 createdAt: serverTimestamp()
-            });
+            }*/
         }
 
 
